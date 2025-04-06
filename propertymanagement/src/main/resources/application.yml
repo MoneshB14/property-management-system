@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: propertymanagement
+  data:
+    mongodb:
+      database: property_management
+      uri: ${MONGO_URI}
+
+server:
+  port: 8023
+
+encryption:
+  algorithm: ${ENCRYPTION_ALGORITHM}
+  transformation: ${ENCRYPTION_TRANSFORMATION}
+  secret-key: ${ENCRYPTION_SECRET_KEY}
