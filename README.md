@@ -35,32 +35,36 @@ A Spring Boot-based backend system for managing real estate properties. This app
 
 ## 📂 Project Structure
 
-├── command
-│   ├── handler
-│   └── model
-├── query
-│   ├── handler
-├── controller
-├── dto
-├── entity
-├── repository
-├── utils
-├── config
-├── properties
-└── response
+📦property-management-system
+ ┣ 📂command
+ ┃ ┣ 📂handler            → Command handlers (create, update, calculate)
+ ┃ ┗ 📂model              → Command model classes
+ ┣ 📂query
+ ┃ ┗ 📂handler            → Query handlers (read-only operations)
+ ┣ 📂controller           → REST controllers for all endpoints
+ ┣ 📂dto                  → Data Transfer Objects for request/response
+ ┣ 📂entity               → MongoDB entity classes (Property, Manager, etc.)
+ ┣ 📂repository           → MongoDB repositories
+ ┣ 📂utils                → Utility classes (e.g., AES encryption)
+ ┣ 📂config               → Configuration classes (Swagger, Mongo, etc.)
+ ┣ 📂properties           → Property-related helper classes
+ ┣ 📂response             → Custom response wrappers (if any)
+ ┗ 📜application.yml      → Main Spring Boot config file
+
 
 🔐 Manager Authentication
 Passwords are encrypted before storage and decrypted for validation using AES. The secret key and algorithm details are stored in application.yml as environment variables.
 
 📡 API Endpoints
-Method	           Endpoint	                                                  Description
-POST	        /api/properties/add                                          	Add a new property
-PUT	          /api/properties/update/{id}	                                  Update property (auth required)
-POST	        /api/properties/salary	                                      Calculate manager salary
-GET	          /api/properties/all	                                          Get all properties
-GET	          /api/properties/occupied	                                    Get only occupied properties
-GET	          /api/properties/area	                                        Get properties by area
-GET	          /api/properties/lowest-value	                                Get lowest value property
+| Method | Endpoint                           | Description                     |
+|--------|------------------------------------|---------------------------------|
+| POST   | /api/properties/add                | Add a new property              |
+| PUT    | /api/properties/update/{id}        | Update property (auth required)|
+| POST   | /api/properties/salary             | Calculate manager salary        |
+| GET    | /api/properties/all                | Get all properties              |
+| GET    | /api/properties/occupied           | Get only occupied properties    |
+| GET    | /api/properties/area               | Get properties by area          |
+| GET    | /api/properties/lowest-value       | Get lowest value property       |
 
 
 🧪 Swagger UI
